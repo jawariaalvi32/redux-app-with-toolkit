@@ -1,10 +1,12 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {delTodo, editTodo} from '../features/todolist/todoSlicer'
+import {delTodo, editTodo, fetchposts} from '../features/todolist/todoSlicer'
 import styles from './Todo.module.css'
 
 function Todos() {
-    const state = useSelector(state => state.todo)
+    const state = useSelector(state => state.todo.todos)
+    const statepost = useSelector(state => state.todo.posts)
+console.log(state)
     const dispatch = useDispatch()
     const handleDel = (id) => {
         dispatch(delTodo(id,state))
@@ -29,6 +31,17 @@ function Todos() {
                  )
                 })
             }
+            {
+                statepost.map((item) => {
+                 return (
+                    <div>
+                        <li key={item.id}>{item.title}</li>
+                        <p>{item.body}</p>
+                    </div>
+                 )
+                })
+            }
+            <button className={styles.asyncButton} onClick={() => dispatch(fetchposts())}>click</button>
         </div>
     )
 }

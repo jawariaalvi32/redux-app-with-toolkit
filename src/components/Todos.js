@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {delTodo, editTodo} from '../features/todolist/todoSlicer'
+import styles from './Todo.module.css'
 
 function Todos() {
     const state = useSelector(state => state.todo)
@@ -20,10 +21,10 @@ function Todos() {
                 state.map((item) => {
                     console.log(item)
                  return (
-                    <div>
+                    <div className={styles.flex}>
                         <li key={item.id}>{item.text}</li>
-                        <button onClick={() => handleDel(item.id)}>Delete</button>
-                        <button onClick={() => handleEdit(item.id)}>Edit</button>
+                        <button className={styles.button} onClick={() => handleDel(item.id)}>Delete</button>
+                        <button className={styles.button} onClick={() => handleEdit(item.id)}>Edit</button>
                     </div>
                  )
                 })

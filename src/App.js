@@ -7,9 +7,11 @@ import AddTodo from './components/AddTodo';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <Counter /> */}
+      <AddTodo/>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <Counter /> */}
+        <Counter />
         <AddTodo/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -52,7 +54,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }

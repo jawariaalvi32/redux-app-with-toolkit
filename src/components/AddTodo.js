@@ -2,7 +2,7 @@ import React from 'react'
 import Todos from './Todos'
 import {useDispatch} from 'react-redux'
 import {addTodo, delAll} from '../features/todolist/todoSlicer'
-
+import styles from './Todo.module.css'
 function AddTodo() {
     const dispatch = useDispatch()
     const [todo, setTodo] = React.useState('')
@@ -24,10 +24,11 @@ function AddTodo() {
 
     return (
         <div>
+            <h3 className={styles.value}>TODO LIST</h3>
              <div>
-                <input type="text" onChange={handleChange} />
-                <button onClick={handlesubmit}>Add</button>
-                <button onClick={handleDel}>Delete All</button>
+                <input type="text" className={styles.textbox} onChange={handleChange} />
+                <button className={`${styles.button} ${styles.btnLg}`} onClick={handlesubmit}>Add</button>
+                <button className={`${styles.button} ${styles.btnLg}`} onClick={handleDel}>Delete All</button>
                 <Todos/>
             </div>
         </div>

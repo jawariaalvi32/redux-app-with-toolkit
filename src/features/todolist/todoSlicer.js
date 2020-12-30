@@ -29,18 +29,18 @@ export const todoSlicer = createSlice({
             )
             return newTodo
         },
-        // editTodo(state, action){
-        //     console.log(typeof parseInt(action.id))
-        //     console.log(action.payload.text)
-        //     let updatedTodo = state.find((item) =>{
-        //         (item.id == parseInt(action.payload.id)) 
-        //         item.text = action.payload.text 
-        //     }
+        editTodo(state, action){
+            console.log(typeof parseInt(action.id))
+            console.log(action.payload.text)
+            let updatedTodo = state.find((item) =>{
+                if (item.id == parseInt(action.payload.id) ) {
+                    item.text = action.payload.text 
+                }
+            }
                 
-        //     )
-        //     console.log(updatedTodo)
-        //     return updatedTodo
-        // }
+            )
+            return updatedTodo
+        }
 
     }
 })
